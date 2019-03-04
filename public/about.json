@@ -1,0 +1,80 @@
+{
+  "client ": {
+    "host": "10.101.53.35"
+  },
+  "server ": {
+    "current_time ": 1531680780,
+    "services ": [
+      {
+        "name": "reddit",
+        "widgets ": [
+          {
+            "name": "sub_reddit",
+            "description ": "Affiche un sub reddit",
+            "params ": [
+              {
+                "name": "sub_reddit",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "post_reddit",
+            "description ": "Affiche un post reddit",
+            "params ": [
+              {
+                "name": "post_reddit",
+                "type": "string"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "music",
+        "widgets ": [
+          {
+            "name": "spotify",
+            "description ": "Affichage  une playlist spotify",
+            "params ": [
+              {
+                "name": "album_id",
+                "type": "string"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "weather",
+        "widgets ": [
+          {
+            "name": "city_weather",
+            "description ": "Affichage la météo d'une ville",
+            "params ": [
+              {
+                "name": "link",
+                "type": "string"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "twitch",
+        "widgets ": [
+          {
+            "name": "twitch_channel",
+            "description ": "Affichage le player d'une chaîne",
+            "params ": [
+              {
+                "name": "name",
+                "type": "string"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+<p>Bienvenue,</p>
+<p>
+  Pour avoir accès au dashboard,
+  {{#if user}}
+  <a href="/dashboard">cliquez ici</a>.
+  {{else}}
+  <a href="/dashboard">connectez-vous</a>.
+</p>
+<p>
+  Si vous n'avez pas de comptes, vous pouvez
+  <a href="/register">vous enregistrer</a>.
+</p>
+{{/if}}

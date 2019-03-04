@@ -1,0 +1,220 @@
+<h1>Dashboard de {{user.profile.firstName}}</h1>
+
+{{#if widgets.reddit}}
+<div class="card-group border-dark mb-3">
+	<div class="card-header">
+		<form action="" method="post">
+			<select name="widget">
+				<option value="postReddit">Post Reddit</option>
+				<option value="subReddit">Sub Reddit</option>
+			</select>
+			<input class="form-control" name="config" placeholder="config">
+			<button type="submit" class="btn btn-primary">Ajouter</button>
+			<input type="hidden" name="type" value="Add">
+		</form>
+	</div>
+	{{#each widgets.subReddit}}
+	<div class="card" style="max-width: 30rem;">
+		<div class="card-header">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+			 aria-haspopup="true" aria-expanded="false">
+				Config
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<form action="" method="post">
+					<button type="submit" class="btn btn-primary">Edit</button>
+					<input class="form-control" name="config" placeholder="sub reddit name">
+					<input type="hidden" name="type" value="Edit">
+					<input type="hidden" name="widget" value="subReddit">
+					<input type="hidden" name="ref" value={{this}}>
+				</form>
+				<form action="" method="post">
+					<button type="submit" class="btn btn-primary">Delete</button>
+					<input type="hidden" name="type" value="Delete">
+					<input type="hidden" name="widget" value="subReddit">
+					<input type="hidden" name="ref" value={{this}}>
+				</form>
+			</div>
+		</div>
+		<div class="card-body">
+			<script src='https://redditjs.com/subreddit.js' data-subreddit={{this}}></script>
+		</div>
+	</div>
+	{{/each}}
+	{{#each widgets.postReddit}}
+	<div class="card" style="max-width: 35rem;">
+		<div class="card-header">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+			 aria-haspopup="true" aria-expanded="false">
+				Config
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<form action="" method="post">
+					<label></label>
+					<button type="submit" class="btn btn-primary">Edit</button>
+					<input class="form-control" name="config" placeholder="post">
+					<input type="hidden" name="type" value="Edit">
+					<input type="hidden" name="widget" value="postReddit">
+					<input type="hidden" name="ref" value={{this}}>
+				</form>
+				<a class="dropdown-item" href="#">Delete</a>
+				</a>
+			</div>
+		</div>
+		<div class="card-body">
+			<script src='https://redditjs.com/post.js' data-url={{this}}></script>
+		</div>
+	</div>
+	{{/each}}
+</div>
+{{/if}}
+
+{{#if widgets.music}}
+<div class="card-group border-dark mb-3">
+	<div class="card-header">
+		<form action="" method="post">
+			<select name="widget">
+				<option value="spotify">Album Spotify</option>
+			</select>
+			<input class="form-control" name="config" placeholder="config">
+			<button type="submit" class="btn btn-primary">Ajouter</button>
+			<input type="hidden" name="type" value="Add">
+		</form>
+	</div>
+	{{#each widgets.spotify}}
+	<div class="card" style="max-width: 30rem;">
+		<div class="card-header">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+			 aria-haspopup="true" aria-expanded="false">
+				Config
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<form action="" method="post">
+					<button type="submit" class="btn btn-primary">Edit</button>
+					<input class="form-control" name="config" placeholder="album id">
+					<input type="hidden" name="type" value="Edit">
+					<input type="hidden" name="widget" value="spotify">
+					<input type="hidden" name="ref" value={{this}}>
+				</form>
+				<form action="" method="post">
+					<button type="submit" class="btn btn-primary">Delete</button>
+					<input type="hidden" name="type" value="Delete">
+					<input type="hidden" name="widget" value="spotify">
+					<input type="hidden" name="ref" value={{this}}>
+				</form>
+			</div>
+		</div>
+		<div class="card-body">
+			<iframe src={{this}} width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+		</div>
+	</div>
+	{{/each}}
+</div>
+{{/if}}
+
+{{#if widgets.weather}}
+<div class="card-group border-dark mb-3">
+	<div class="card-header">
+		<form action="" method="post">
+			<select name="widget">
+				<option value="currentWeather">Météo</option>
+			</select>
+			<input class="form-control" name="config" placeholder="config">
+			<p>Obtenez l'url de la ville sur:<br>
+				https://forecast7.com/</p>
+			<button type="submit" class="btn btn-primary">Ajouter</button>
+			<input type="hidden" name="type" value="Add">
+		</form>
+	</div>
+	{{#each widgets.currentWeather}}
+	<div class="card" style="max-width: 30rem;">
+		<div class="card-header">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+			 aria-haspopup="true" aria-expanded="false">
+				Config
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<form action="" method="post">
+					<button type="submit" class="btn btn-primary">Edit</button>
+					<input class="form-control" name="config" placeholder="ville">
+					<input type="hidden" name="type" value="Edit">
+					<input type="hidden" name="widget" value="currentWeather">
+					<input type="hidden" name="ref" value={{this.url}}>
+				</form>
+				<form action="" method="post">
+					<button type="submit" class="btn btn-primary">Delete</button>
+					<input type="hidden" name="type" value="Delete">
+					<input type="hidden" name="widget" value="currentWeather">
+					<input type="hidden" name="ref" value={{this.url}}>
+				</form>
+			</div>
+		</div>
+		<div class="card-body">
+			<a class="weatherwidget-io" href={{this.url}} data-label_1={{this.city}} data-label_2="WEATHER" data-theme="original"></a>
+			<script>
+				!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');
+			</script>
+		</div>
+	</div>
+	{{/each}}
+</div>
+{{/if}}
+
+
+{{#if widgets.twitchState}}
+<div class="card-group border-dark mb-3">
+	<div class="card-header">
+		<form action="" method="post">
+			<select name="widget">
+				<option value="twitch">chaîne twitch</option>
+			</select>
+			<input class="form-control" name="config" placeholder="config">
+			<button type="submit" class="btn btn-primary">Ajouter</button>
+			<input type="hidden" name="type" value="Add">
+		</form>
+	</div>
+	{{#each widgets.twitch}}
+	<div class="card" style="max-width: 30rem;">
+		<div class="card-header">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+			 aria-haspopup="true" aria-expanded="false">
+				Config
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<form action="" method="post">
+					<button type="submit" class="btn btn-primary">Edit</button>
+					<input class="form-control" name="config" placeholder="ville">
+					<input type="hidden" name="type" value="Edit">
+					<input type="hidden" name="widget" value="twitch">
+					<input type="hidden" name="ref" value={{this}}>
+				</form>
+				<form action="" method="post">
+					<button type="submit" class="btn btn-primary">Delete</button>
+					<input type="hidden" name="type" value="Delete">
+					<input type="hidden" name="widget" value="twitch">
+					<input type="hidden" name="ref" value={{this}}>
+				</form>
+			</div>
+		</div>
+		<div class="card-body">
+
+			<input id="HELP" type="hidden" name="ref" value={{this}}>
+			<div id="twitch-embed" style="min-width: 30rem;"></div>
+
+			<!-- Load the Twitch embed script -->
+			<script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+			<!-- Create a Twitch.Embed object that will render within the "twitch-embed" root element. -->
+			<script type="text/javascript">
+				lol = 
+				new Twitch.Embed("twitch-embed", {
+					width: 854,
+					height: 480,
+					channel: document.getElementById('HELP').value
+				});
+			</script>
+		</div>
+	</div>
+	{{/each}}
+</div>
+{{/if}}

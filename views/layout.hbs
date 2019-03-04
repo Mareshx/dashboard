@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src='/js/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href='/stylesheets/bootstrap.min.css'>
+    <script src='/js/bootstrap.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/popper.min.js"></script>
+
+  </head>
+  <body>
+    <header>
+      <h1>{{title}}</h1>
+      {{#if user}}
+          Connecté en tant que {{user.profile.firstName}} {{user.profile.lastName}} / 
+	  <a href="/dashboard"> Dashboard / </a>
+	  <a href="/services">Services / </a>
+        <a href="/logout">Déconnecter</a>
+      {{else}}
+        <a href="/login">Connecter</a>
+      {{/if}}
+    </header>
+    <main>
+      {{{body}}}
+    </main>
+  </body>
+</html>

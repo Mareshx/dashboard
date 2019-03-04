@@ -1,0 +1,11 @@
+version: '3'
+services:
+  server:
+    build: .
+    container_name: app
+    command: npm start
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - "8080:8080"
